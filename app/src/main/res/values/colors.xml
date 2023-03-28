@@ -12,4 +12,6 @@
     <color name="pink">#E11299</color>
     <color name="btnPink">#B022AA</color>
     <color name="grey">#3A3A3A</color>
+    <color name="rippleBg">#9A208C</color>
+    <color name="strokePink">#AF0171</color>
 </resources>
