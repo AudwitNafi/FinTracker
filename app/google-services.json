@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "75003629260",
+    "firebase_url": "https://fintrackerdemo-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fintrackerdemo",
+    "storage_bucket": "fintrackerdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75003629260:android:1c25ad1e6843338dd97c69",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75003629260-mbgpdfscnabichlndlb7bod8va0qvna2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSeU-9UyrflZ_RgjUX-0A2rOPuac0gUXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75003629260-mbgpdfscnabichlndlb7bod8va0qvna2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
