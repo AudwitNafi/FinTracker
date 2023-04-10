@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/signUpPassword"
+        app:layout_constraintBottom_toTopOf="@+id/signInPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/signUpName"
+        android:id="@+id/signInEmail"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.284" />
 
     <EditText
-        android:id="@+id/signUpPassword"
+        android:id="@+id/signInPassword"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_edittext"
@@ -88,9 +88,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="Email"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/signUpName"
+        app:layout_constraintBottom_toTopOf="@+id/signInEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signUpBtn"
+        android:id="@+id/signInBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="240dp"
@@ -122,11 +122,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
         app:layout_constraintVertical_bias="0.099" />
 
     <TextView
-        android:id="@+id/sign_in_textview"
+        android:id="@+id/signUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/underline_text"
@@ -136,7 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toEndOf="@+id/already_have_an_account_textview"
-        app:layout_constraintTop_toBottomOf="@+id/signUpBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
         app:layout_constraintVertical_bias="0.099" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -161,7 +161,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_textview"
+        app:layout_constraintTop_toBottomOf="@+id/signUpText"
         app:layout_constraintVertical_bias="0.0"></androidx.appcompat.widget.AppCompatButton>
 
 

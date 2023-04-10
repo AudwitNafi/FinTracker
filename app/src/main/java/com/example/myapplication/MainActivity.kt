@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val signUpConfirmPassword : EditText  = findViewById(R.id.signUpConfirmPassword)
         val signUpBtn : Button = findViewById(R.id.signUpBtn)
 
-        val signInText : TextView = findViewById(R.id.sign_in_textview)
+        val signInText : TextView = findViewById(R.id.signUpText)
 
 
         signInText.setOnClickListener{
@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                         databaseRef.setValue(users).addOnCompleteListener {
                             if(it.isSuccessful){
                                 val intent = Intent(this, LoginActivity::class.java)
+                                startActivity(intent)
                             }else{
                                 Toast.makeText(this, "Something went wrong, try again", Toast.LENGTH_SHORT).show()
                             }
