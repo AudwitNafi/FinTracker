@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_margin="5dp"
         android:backgroundTint="#1E1E1E"
         app:cardCornerRadius="7dp"
         app:cardElevation="7dp"
@@ -19,12 +19,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp">
+            android:layout_height="50dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:id="@+id/expImg"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="10dp"
                 android:src="@drawable/pizza"
                 app:civ_border_color="#FF000000"
@@ -39,10 +39,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="TextView"
+                android:text="Lunch"
                 android:textColor="#FFFFFF"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/textViewExpenseTime"
-                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintStart_toEndOf="@+id/expImg"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -50,20 +51,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="TextView"
-                android:textColor="#FFFFFF"
+                android:text="13:21"
+                android:textColor="#A8A8A8"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintStart_toEndOf="@+id/expImg"
                 app:layout_constraintTop_toBottomOf="@+id/textViewExpenseName" />
 
             <TextView
                 android:id="@+id/textViewExpAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
-                android:text="TextView"
+                android:layout_marginBottom="32dp"
+                android:text="-$7.20"
                 android:textColor="#FF0000"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
