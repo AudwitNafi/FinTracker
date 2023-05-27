@@ -9,10 +9,12 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +25,8 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fintracker"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:text="FinTracker"
 
         android:textColor="#000"
@@ -86,10 +89,12 @@
         app:layout_constraintVertical_bias="0.483" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +111,8 @@
         android:background="@drawable/ripple_bg"
         android:backgroundTint="#B022AA"
         android:text="Login"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,11 +121,13 @@
         app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_no_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't have an account?"
-        android:textColor="#000"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
+        android:textColor="#C0000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.386"
@@ -130,15 +139,16 @@
         android:id="@+id/textViewSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/underline_text"
+        android:fontFamily="@font/inter"
         android:text="Sign up"
-        android:textColor="#000"
+        android:textColor="#C0000000"
+        android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInBtn"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.227" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

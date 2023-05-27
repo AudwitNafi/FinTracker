@@ -9,10 +9,13 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
+
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,8 +28,9 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fintracker"
+        android:fontFamily="@font/inter"
         android:text="FinTracker"
+        android:textFontWeight="650"
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -125,10 +129,12 @@
         app:layout_constraintVertical_bias="0.628" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,11 +144,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Email"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,11 +160,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_confirm_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="Repeat Password"
+        android:text="Confirm Password"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +184,8 @@
         android:text="Sign Up"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:fontFamily="@font/inter"
+        android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -182,11 +194,11 @@
         app:layout_constraintVertical_bias="0.135"></androidx.appcompat.widget.AppCompatButton>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_already_have_an_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already have an account?"
-        android:textColor="@color/black"
+        android:textColor="#C0000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
@@ -200,7 +212,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/underline_text"
         android:text="Sign In"
-        android:textColor="@color/black"
+        android:textColor="#C0000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.758"
