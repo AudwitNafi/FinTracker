@@ -4,4 +4,19 @@
     <string name="new_expense_title">Add new expense</string>
     <string name="add">Add</string>
     <string name="exp_name">Expense Name</string>
+
+<string-array name="dropdown1_items">
+    <item>Credit Card</item>
+    <item>BKash</item>
+    <item>Cash</item>
+    <!-- Add more items as needed -->
+</string-array>
+<!-- Other resources... -->
+
+<string-array name="dropdown2_items">
+    <item>Pets</item>
+    <item>Grocery</item>
+    <item>Drugs</item>
+    <!-- Add more items as needed -->
+</string-array>
 </resources>
