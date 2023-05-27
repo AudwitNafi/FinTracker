@@ -19,6 +19,6 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this, SignUpActivity::class.java))
             finish()
-        }, 2500)
+        }, 2000)
     }
 }
