@@ -13,6 +13,11 @@
         <activity
             android:name=".acitivities.DetailsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".acitivities.ProfileActivity"
+            android:exported="true" />
+
         <activity
             android:name=".acitivities.ReportGenerateActivity"
             android:exported="true"
