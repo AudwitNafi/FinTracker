@@ -11,10 +11,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".acitivities.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile"
+            android:name=".acitivities.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".acitivities.AddExpenseActivity"
