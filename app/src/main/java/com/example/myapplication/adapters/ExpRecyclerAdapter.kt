@@ -31,7 +31,7 @@ class ExpRecyclerAdapter (var expArray : ArrayList<ExpenseModel>) : RecyclerView
         holder.expImg.setImageResource(currentItem.expImg)
         holder.expName.text = currentItem.expTitle
         holder.expTime.text = currentItem.expTime
-        holder.expAmt.text = "$"+ currentItem.expAmt.toString()
+        holder.expAmt.text = "$" + currentItem.expAmt.toString()
     }
 
     fun setData(expenses : ArrayList<ExpenseModel>){

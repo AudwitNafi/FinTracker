@@ -60,7 +60,7 @@ class AddExpenseActivity : AppCompatActivity() {
             }
             if(amt.text.toString().toDoubleOrNull()==null) amt.error = "Please enter an amount"
             else {
-                val expense = ExpenseModel(0, R.drawable.burger, title.text.toString() , note.text.toString(), amt.text.toString().toDouble())
+                val expense = ExpenseModel(0, R.drawable.burger, title.text.toString() , note.text.toString(), "00:00", amt.text.toString().toDouble())
                 insert(expense)
             }
             val intent = Intent(this, HomePage::class.java)
@@ -88,7 +88,7 @@ class AddExpenseActivity : AppCompatActivity() {
     {
         val db = Room.databaseBuilder(this,
             Database::class.java,
-            "Expenses").build()
+            "exp").build()
 
         GlobalScope.launch {
             db.expenseDao().insertAll(expense)

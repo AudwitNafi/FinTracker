@@ -7,7 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bgColor">#1e1e1e</color>
+    <color name="red">#ff0000</color>
+    <color name="bgColor">#fff</color>
+<!--    f1f6f9 1e1e1e-->
     <color name="brightGreen">#38E54D</color>
     <color name="pink">#E11299</color>
     <color name="btnPink">#B022AA</color>
@@ -15,4 +17,8 @@
     <color name="rippleBg">#9A208C</color>
     <color name="strokePink">#AF0171</color>
     <color name="categoryBoxColor">#2A2F4F</color>
+    <color name="home_page_text_primary">#000</color>
+    <color name="home_page_text_secondary">#A8A8A8</color>
+<!--    a8a8a8-->
+    <color name="expense_card">#f1f6f9</color>
 </resources>

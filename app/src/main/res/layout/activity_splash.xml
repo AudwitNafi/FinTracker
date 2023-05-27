@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".acitivities.SplashActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/splashbg"
+        android:fontFamily="@font/comfortaa"
         android:gravity="center"
         android:text="FinTracker"
-        android:textColor="@color/white"
-        android:fontFamily="@font/inter"
-        android:textSize="70sp"
+        android:textColor="@color/black"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
 </LinearLayout>

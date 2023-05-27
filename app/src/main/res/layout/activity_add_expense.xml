@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add an Expense"
-        android:textColor="@color/white"
-        android:fontFamily="@font/imprima"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter"
         android:textSize="40sp"
         android:paddingVertical="20dp"
         android:textAlignment="center"
@@ -32,13 +32,13 @@
             android:layout_height="wrap_content"
             android:text="BDT"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_margin="5dp"/>
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textAlignment="center"
             android:inputType="numberDecimal|numberSigned"/>
     </LinearLayout>
@@ -47,7 +47,7 @@
         android:id="@+id/expTitle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textColorHint="#9E9E9E"
         android:hint="Title"
         android:layout_marginVertical="20dp"
@@ -59,15 +59,15 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:hint="Add a note"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textColorHint="#9E9E9E"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select a Category"
-        android:textColor="@color/white"
-        android:fontFamily="@font/imprima"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter"
         android:textSize="20sp"
         android:paddingVertical="10dp"
         android:textAlignment="center"

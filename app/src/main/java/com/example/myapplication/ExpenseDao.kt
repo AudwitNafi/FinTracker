@@ -5,7 +5,7 @@ import com.example.myapplication.models.ExpenseModel
 
 @Dao
 interface ExpenseDao {
-    @Query("SELECT * FROM Expenses")
+    @Query("SELECT * FROM exp")
     fun getAll(): List<ExpenseModel>
 
     @Insert
