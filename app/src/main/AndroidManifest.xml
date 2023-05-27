@@ -11,14 +11,13 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".AddExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddExpense"
-            android:exported="false" />
+            android:name=".acitivities.ReportGenerateActivity"
+            android:exported="true"
+            android:label="@string/title_activity_report_generate"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".acitivities.AddExpenseActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".acitivities.SplashActivity"

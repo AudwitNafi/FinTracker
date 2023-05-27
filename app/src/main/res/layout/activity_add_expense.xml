@@ -324,7 +324,7 @@
             android:fontFamily="@font/inter"
             android:background="@drawable/button_background"
 
-            android:text="<"
+            android:text="B"
             android:textColor="#C0808080"
             android:textSize="33dp"
             app:cornerRadius="36dp"
