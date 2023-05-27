@@ -9,6 +9,22 @@
 
 
     <TextView
+<<<<<<< HEAD
+=======
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,7 +105,63 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.427" />
+=======
+        app:layout_constraintVertical_bias="0.423" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/baseline_lock_24"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/baseline_lock_24"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.628" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="1.0" />
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
 
     <TextView
         android:id="@+id/tv_email"
@@ -98,7 +170,10 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="44dp"
         android:fontFamily="@font/inter"
+<<<<<<< HEAD
         android:text="Email"
+=======
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:textColor="@color/black"
         android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="@+id/et_password"
@@ -170,7 +245,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/inter"
+<<<<<<< HEAD
         android:text="Confirm Password"
+=======
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:textColor="@color/black"
         android:textFontWeight="650"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
@@ -189,6 +267,7 @@
         android:backgroundTint="#B022AA"
         android:fontFamily="@font/inter"
         android:text="Sign Up"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textFontWeight="650"
         android:textSize="16sp"
@@ -200,15 +279,37 @@
         app:layout_constraintVertical_bias="0.135"></androidx.appcompat.widget.AppCompatButton>
 
     <TextView
-        android:id="@+id/textViewSignIn"
+<<<<<<< HEAD
+=======
+        android:id="@+id/tv_already_have_an_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/underline_text"
-        android:text="Sign In"
+        android:fontFamily="@font/inter"
+        android:text="Already have an account?"
         android:textColor="#C0000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
+        android:id="@+id/textViewSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+
+        android:text="Sign In"
+        android:textFontWeight="650"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.747"
+=======
+        app:layout_constraintHorizontal_bias="0.8"
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_sign_up"
         app:layout_constraintVertical_bias="0.096" />

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044"
         app:shapeAppearanceOverlay="@style/ImageView.Circle"
-        app:srcCompat="@drawable/profile_pic" />
+        app:srcCompat="@drawable/profile_picture" />
 
     <ImageView
         android:id="@+id/edit_profile_picture_button"
@@ -56,7 +56,7 @@
         android:text="Nafi"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/profile_picture"
         app:layout_constraintHorizontal_bias="0.504"
@@ -154,7 +154,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="412dp"
         android:layout_height="53dp"
-        android:background="@color/navbar_bg"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

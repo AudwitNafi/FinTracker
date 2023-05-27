@@ -13,6 +13,11 @@
         <activity
             android:name=".acitivities.DetailsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".acitivities.ProfileActivity"
+            android:exported="true" />
+
         <activity
             android:name=".acitivities.ReportGenerateActivity"
             android:exported="true"
@@ -35,17 +40,17 @@
         </activity>
         <activity
             android:name=".acitivities.HomePage"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".acitivities.LoginActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".acitivities.SignUpActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>

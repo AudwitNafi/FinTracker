@@ -9,6 +9,21 @@
 
 
     <TextView
+<<<<<<< HEAD
+=======
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:fontFamily="@font/inter"
+        android:textColor="#000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +75,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
+<<<<<<< HEAD
         android:text="Password"
+=======
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:textColor="#000"
         android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="@+id/et_password"
@@ -130,7 +148,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
         android:fontFamily="@font/inter"
+<<<<<<< HEAD
         android:text="Don't have an account?"
+=======
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         android:textColor="#C0000000"
         android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,12 +168,18 @@
         android:layout_marginBottom="180dp"
         android:fontFamily="@font/inter"
         android:text="Sign up"
-        android:textColor="#C0000000"
         android:textFontWeight="650"
+<<<<<<< HEAD
         android:background="@drawable/underline_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.722"
+=======
+        android:textColor="#C0000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.775"
+>>>>>>> 3aafdc47e8eaa950f3e3c87f7751c2dbf89c9ca9
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_sign_in"
         app:layout_constraintVertical_bias="1.0" />
