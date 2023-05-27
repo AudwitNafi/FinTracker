@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fintracker"
         android:text="FinTracker"
+
         android:textColor="#000"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"

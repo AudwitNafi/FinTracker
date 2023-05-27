@@ -10,11 +10,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/inter"
+        android:layout_weight="650"
         android:gravity="center"
         android:text="FinTracker"
         android:textColor="@color/black"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textSize="50sp"/>
 
 </LinearLayout>
