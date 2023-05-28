@@ -150,8 +150,9 @@
                 android:layout_marginHorizontal="20dp"/>
         </LinearLayout>
     </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/bottom_navigation_view"
         android:layout_width="412dp"
         android:layout_height="53dp"
         android:background="@color/white"
@@ -162,4 +163,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/activity_main_navbar"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

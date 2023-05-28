@@ -17,6 +17,7 @@ import com.example.myapplication.Database
 import com.example.myapplication.adapters.ExpRecyclerAdapter
 import com.example.myapplication.models.ExpenseModel
 import com.example.myapplication.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -39,11 +40,32 @@ class HomePage : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-//        val expRecyclerView : RecyclerView = findViewById(R.id.expRecyclerView)
-//        expRecyclerView.layoutManager = LinearLayoutManager(this)
+        val userName = intent.getStringExtra("username")
 
-//        addExpenses()
+        if (userName != null) {
+            setUserName(userName)
+        }
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        bottomNavigationView.selectedItemId = R.id.nav_expenses
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_reports -> {
+                    startActivity(Intent(applicationContext, ReportGenerateActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_expenses -> return@OnNavigationItemSelectedListener true
+                R.id.nav_profile -> {
+                    startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        })
         db = Room.databaseBuilder(this,
         Database::class.java,
         "exp").build()
@@ -84,6 +106,11 @@ class HomePage : AppCompatActivity() {
         }
     }
 
+    private fun setUserName(username:String)
+    {
+        val tvUsername = findViewById<TextView>(R.id.tv_username)
+        tvUsername.text = "Welcome back, $username"
+    }
     private fun fetchAll(){
 
         GlobalScope.launch {

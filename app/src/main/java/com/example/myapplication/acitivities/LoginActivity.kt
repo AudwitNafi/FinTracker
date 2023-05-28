@@ -26,15 +26,13 @@ class LoginActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
 
         val signUpBtn : TextView = findViewById(R.id.btn_sign_up)
         val signInBtn : Button = findViewById(R.id.btn_sign_in)
 
         signInBtn.setOnClickListener {
             signInUser()
-            val intent = Intent(this, HomePage::class.java)
-            startActivity(intent)
         }
 
         signUpBtn.setOnClickListener {
@@ -46,20 +44,26 @@ class LoginActivity : AppCompatActivity() {
     private fun signInUser()
     {
         val etEmail = findViewById<EditText>(R.id.et_email_sign_in)
-        val etPassword = findViewById<EditText>(R.id.et_password)
+        val etPassword = findViewById<EditText>(R.id.et_password_sign_in)
 
         val email : String = etEmail.text.toString()
         val password : String = etPassword.text.toString()
 
-        auth.createUserWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("Sign in", "createUserWithEmail:success")
+                    Log.d("Sign in", "signInWithEmail:success")
                     val user = auth.currentUser
+                    val intent = Intent(this, HomePage::class.java)
+                    if (user != null) {
+                        intent.putExtra("username", user.displayName)
+                    }
+                    startActivity(intent)
+
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("Sign in", "createUserWithEmail:failure", task.exception)
+                    Log.w("Sign in", "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
                         "Authentication failed.",
@@ -67,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
             }
+
 
     }
 }

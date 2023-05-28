@@ -12,11 +12,13 @@
         tools:targetApi="31">
         <activity
             android:name=".acitivities.DetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
             android:name=".acitivities.ProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
             android:name=".acitivities.ReportGenerateActivity"
