@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.core.content.res.ResourcesCompat
 import com.example.myapplication.R
 import com.github.mikephil.charting.charts.PieChart
@@ -18,6 +19,11 @@ class ReportGenerateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_generate)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.selectedItemId = R.id.nav_reports
