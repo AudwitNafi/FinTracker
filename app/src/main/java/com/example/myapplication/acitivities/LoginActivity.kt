@@ -22,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -76,7 +78,5 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-
-
     }
 }
