@@ -2,8 +2,10 @@ package com.example.myapplication.acitivities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import com.example.myapplication.R
+import java.text.DecimalFormat
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var dropdownRow: LinearLayout
@@ -38,34 +40,54 @@ class AddExpenseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_expense)
 
         // Assign variables to layout items
-        dropdownRow = findViewById(R.id.dropdownRow)
+//        dropdownRow : Button = findViewById(R.id.dropdownRow)
         dropdown1 = findViewById(R.id.dropdown1)
         dropdown2 = findViewById(R.id.dropdown2)
-        saveButton = findViewById(R.id.saveButton)
-        buttonRow1 = findViewById(R.id.buttonRow1)
-        button7 = findViewById(R.id.button7)
-        button8 = findViewById(R.id.button8)
-        button9 = findViewById(R.id.button9)
-        buttonRow2 = findViewById(R.id.buttonRow2)
-        button4 = findViewById(R.id.button4)
-        button5 = findViewById(R.id.button5)
-        button6 = findViewById(R.id.button6)
-        buttonRow3 = findViewById(R.id.buttonRow3)
-        button1 = findViewById(R.id.button1)
-        button2 = findViewById(R.id.button2)
-        button3 = findViewById(R.id.button3)
-        buttonRow4 = findViewById(R.id.buttonRow4)
-        buttonDot = findViewById(R.id.buttonDot)
-        button0 = findViewById(R.id.button0)
-        buttonBack = findViewById(R.id.buttonBack)
-        date = findViewById(R.id.date)
-        note = findViewById(R.id.note)
-        title = findViewById(R.id.title)
-        cancelButton = findViewById(R.id.cancel_button)
-        dollarIcon = findViewById(R.id.dollarIcon)
-        amount = findViewById(R.id.amount)
+
 
         // Rest of your code...
+    }
+
+    private fun calculateDollarAmount()
+    {
+        val tvAmount : TextView = findViewById(R.id.amount)
+        val tvDollarAmount : TextView = findViewById(R.id.dollar_amount)
+
+        var taka = tvAmount.text.toString().toDouble()
+        var dollar = taka/107.36
+
+        tvDollarAmount.text = String.format("%.2f", dollar)
+    }
+    fun onDigitPressed(view: View) {
+        val button7 : Button = findViewById(R.id.button7)
+        val button8 : Button = findViewById(R.id.button8)
+        val button9 : Button = findViewById(R.id.button9)
+        val button4 : Button = findViewById(R.id.button4)
+        val button5 : Button = findViewById(R.id.button5)
+        val button6 : Button = findViewById(R.id.button6)
+
+        val button1 : Button = findViewById(R.id.button1)
+        val button2 : Button = findViewById(R.id.button2)
+        val button3 : Button = findViewById(R.id.button3)
+
+        val buttonDot : Button = findViewById(R.id.buttonDot)
+        val button0 : Button = findViewById(R.id.button0)
+        val buttonBack : Button = findViewById(R.id.buttonBack)
+
+
+        val tvAmount : TextView = findViewById(R.id.amount)
+
+        if(tvAmount.text == "0") tvAmount.text = (view as Button).text
+        else tvAmount.append((view as Button).text)
+        calculateDollarAmount()
+    }
+
+    fun onClearPressed(view: View){
+        val clearBtn : ImageButton = findViewById(R.id.clear_btn)
+        val tvAmount : TextView = findViewById(R.id.amount)
+
+        tvAmount.text = "0"
+        calculateDollarAmount()
     }
 
     // Rest of the AddExpenseActivity class...

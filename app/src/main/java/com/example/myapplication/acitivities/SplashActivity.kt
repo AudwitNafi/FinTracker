@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.firebase.FirestoreClass
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,13 @@ class SplashActivity : AppCompatActivity() {
         )
 
         Handler().postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
+            var currentUserID = FirestoreClass().getCurrentUserId()
+            if(currentUserID.isNotEmpty())
+            {
+                startActivity(Intent(this, HomePage::class.java))
+            }else{
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
             finish()
         }, 2000)
     }

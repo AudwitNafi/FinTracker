@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -41,6 +42,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    fun signInSuccess(user: User){
+        startActivity(Intent(this, HomePage::class.java))
+        finish()
+    }
     private fun signInUser()
     {
         val etEmail = findViewById<EditText>(R.id.et_email_sign_in)

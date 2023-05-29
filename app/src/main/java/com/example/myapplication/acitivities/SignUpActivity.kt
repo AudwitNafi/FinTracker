@@ -11,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.myapplication.R
+import com.example.myapplication.firebase.FirestoreClass
+import com.example.myapplication.models.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -44,6 +46,17 @@ class SignUpActivity : AppCompatActivity() {
         snackBar.show()
     }
 
+    fun userRegisteredSuccess()
+    {
+        Toast.makeText(
+            this, "you have successfully " +
+                    "registered", Toast.LENGTH_LONG
+        ).show()
+        FirebaseAuth.getInstance().signOut()
+        finish()
+    }
+
+
     private fun registerUser(){
         val etName = findViewById<EditText>(R.id.et_username)
         val etEmail = findViewById<EditText>(R.id.et_email)
@@ -61,12 +74,10 @@ class SignUpActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
                         val registeredEmail = firebaseUser.email!!
-                        Toast.makeText(
-                            this, "$name you have successfully " +
-                                    "registered the email $registeredEmail", Toast.LENGTH_LONG
-                        ).show()
-                        FirebaseAuth.getInstance().signOut()
-                        finish()
+
+                        val user = User(firebaseUser.uid, name, registeredEmail)
+
+                        FirestoreClass().registerUser(this, user)
                     }else{
                         Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT)
                             .show()

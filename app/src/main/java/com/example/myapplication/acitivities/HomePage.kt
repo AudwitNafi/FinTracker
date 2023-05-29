@@ -99,8 +99,8 @@ class HomePage : AppCompatActivity() {
         val swipeHelper = ItemTouchHelper(itemTouchHelper)
         swipeHelper.attachToRecyclerView(expRecyclerView)
 
-        val addExpense = findViewById<Button>(R.id.add_btn)
-        addExpense.setOnClickListener{
+        val addExpense : Button = findViewById(R.id.add_btn)
+        addExpense.setOnClickListener {
             val intent = Intent(this, AddExpenseActivity::class.java)
             startActivity(intent)
         }
