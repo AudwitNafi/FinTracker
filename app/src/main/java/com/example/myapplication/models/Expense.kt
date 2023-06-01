@@ -12,6 +12,7 @@ data class Expense (
     var note : String,
     var amount : String ?=null,
     ): Parcelable{
+
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString(),

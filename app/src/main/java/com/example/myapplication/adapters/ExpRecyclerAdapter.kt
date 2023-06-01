@@ -7,14 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.models.ExpenseModel
+import com.example.myapplication.models.Expense
 
-class ExpRecyclerAdapter (var expArray : ArrayList<ExpenseModel>) : RecyclerView.Adapter<ExpRecyclerAdapter.ViewHolder>(){
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val expImg : ImageView = itemView.findViewById(R.id.expImg)
-        val expName : TextView = itemView.findViewById(R.id.textViewExpenseName)
-        val expAmt : TextView = itemView.findViewById(R.id.textViewExpAmount)
-        val expTime : TextView = itemView.findViewById(R.id.textViewExpenseTime)
+class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapter<ExpRecyclerAdapter.ViewHolder>() {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val expImg: ImageView = itemView.findViewById(R.id.expImg)
+        val expName: TextView = itemView.findViewById(R.id.textViewExpenseName)
+        val expAmt: TextView = itemView.findViewById(R.id.textViewExpAmount)
+        val expTime: TextView = itemView.findViewById(R.id.textViewExpenseTime)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,13 +28,13 @@ class ExpRecyclerAdapter (var expArray : ArrayList<ExpenseModel>) : RecyclerView
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = expArray[position]
-        holder.expImg.setImageResource(currentItem.expImg)
-        holder.expName.text = currentItem.expTitle
-        holder.expTime.text = currentItem.expTime
-        holder.expAmt.text = "$" + currentItem.expAmt.toString()
+        // Set the values from the Expense object to the views in the ViewHolder
+        holder.expName.text = currentItem.expenseType
+        holder.expTime.text = currentItem.date
+        holder.expAmt.text = "$" + currentItem.amount
     }
 
-    fun setData(expenses : ArrayList<ExpenseModel>){
+    fun setData(expenses: ArrayList<Expense>) {
         this.expArray = expenses
         notifyDataSetChanged()
     }

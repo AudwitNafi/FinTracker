@@ -69,16 +69,26 @@ class AddExpenseActivity : AppCompatActivity() {
         dropdown1 = findViewById(R.id.dropdown1)
         return dropdown1.selectedItem.toString()
     }
-    private fun getCurrentUserID(): String {
+
+
+    private fun  getCurrentUserID(): String {
         return FirebaseAuth.getInstance().currentUser!!.uid
     }
+
+    private fun getAmount() : String {
+        return findViewById<TextView>(R.id.amount).toString()
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addExpense(){
         var userId = getCurrentUserID()
         var expenseType = getExpenseType()
         var paymentMethod = getPaymentMethod()
         var note = getNote()
-        var amount = findViewById<TextView>(R.id.amount).toString()
+        var amount = getAmount()
+
+        print(amount)
+
         if(validateForm(expenseType, paymentMethod, amount)){
             val expense = Expense(userId, "Expense", expenseType, paymentMethod, getCurrentTime(), note, amount)
             FirestoreClass().addExpense(this, expense)
@@ -151,8 +161,12 @@ class AddExpenseActivity : AppCompatActivity() {
 
         val tvAmount : TextView = findViewById(R.id.amount)
 
-        if(tvAmount.text == "0") tvAmount.text = (view as Button).text
-        else tvAmount.append((view as Button).text)
+        if (tvAmount.text.toString() == "0") {
+            tvAmount.text = (view as Button).text
+        } else {
+            tvAmount.append((view as Button).text)
+        }
+
         calculateDollarAmount()
     }
 

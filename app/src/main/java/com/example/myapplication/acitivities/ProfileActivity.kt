@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.activities.ReportGenerateActivity
 import com.example.myapplication.firebase.FirestoreClass
 import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
