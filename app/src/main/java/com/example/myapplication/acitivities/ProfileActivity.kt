@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.firebase.FirestoreClass
+import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class ProfileActivity : AppCompatActivity() {
-//    private var signOutBtn : LinearLayout = findViewById(R.id.logout_btn)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -21,6 +26,8 @@ class ProfileActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        FirestoreClass().signInUser(this)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.selectedItemId = R.id.nav_profile
@@ -42,13 +49,25 @@ class ProfileActivity : AppCompatActivity() {
             }
             false
         })
-//        signOutBtn.setOnClickListener {
-//            signOut()
-//        }
+        var signOutBtn : Button = findViewById(R.id.temp_sign_out_btn)
+        signOutBtn.setOnClickListener {
+            signOut()
+        }
+    }
+
+    fun setUserData(user: User){
+        val dp : ImageView = findViewById(R.id.profile_picture)
+        val username : TextView = findViewById(R.id.tv_profile_username)
+
+        username.text = user.name
     }
 
     private fun signOut()
     {
-        Firebase.auth.signOut()
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT)
+        startActivity(intent)
+        finish()
     }
 }

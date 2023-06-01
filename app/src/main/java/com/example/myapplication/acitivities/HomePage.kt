@@ -17,12 +17,15 @@ import com.example.myapplication.Database
 import com.example.myapplication.adapters.ExpRecyclerAdapter
 import com.example.myapplication.models.ExpenseModel
 import com.example.myapplication.R
+import com.example.myapplication.firebase.FirestoreClass
+import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class HomePage : AppCompatActivity() {
+    private lateinit var mUserName: String
     private lateinit var deleted : ExpenseModel
     private lateinit var old : ArrayList<ExpenseModel>
     private lateinit var expArray : ArrayList<ExpenseModel>
@@ -40,12 +43,9 @@ class HomePage : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        val userName = intent.getStringExtra("username")
+        FirestoreClass().signInUser(this)
 
-        if (userName != null) {
-            setUserName(userName)
-        }
-
+        //Setting NavBar
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.selectedItemId = R.id.nav_expenses
 
@@ -66,9 +66,9 @@ class HomePage : AppCompatActivity() {
             }
             false
         })
-        db = Room.databaseBuilder(this,
-        Database::class.java,
-        "exp").build()
+//        db = Room.databaseBuilder(this,
+//        Database::class.java,
+//        "exp").build()
 
         expArray = arrayListOf()
 //        expRecyclerView.adapter = ExpRecyclerAdapter(expArray)
@@ -99,30 +99,33 @@ class HomePage : AppCompatActivity() {
         val swipeHelper = ItemTouchHelper(itemTouchHelper)
         swipeHelper.attachToRecyclerView(expRecyclerView)
 
+        //Going to add expense activity
         val addExpense : Button = findViewById(R.id.add_btn)
         addExpense.setOnClickListener {
             val intent = Intent(this, AddExpenseActivity::class.java)
+//            intent.putExtra("Name", mUserName)
             startActivity(intent)
         }
     }
 
-    private fun setUserName(username:String)
-    {
-        val tvUsername = findViewById<TextView>(R.id.tv_username)
-        tvUsername.text = "Welcome back, $username"
-    }
-    private fun fetchAll(){
 
-        GlobalScope.launch {
-            expArray = db.expenseDao().getAll() as ArrayList<ExpenseModel>
-//            db.expenseDao().insertAll(ExpenseModel(0, R.drawable.hotdog, "Evening", "Note", "18:40", 50.00))
-            runOnUiThread{
-                updateTotalExpense()
-                expenseAdapter.setData(expArray)
-            }
-
-        }
+    fun setUserData(user: User){
+        mUserName = user.name
+        val tvName : TextView = findViewById(R.id.tv_username)
+        tvName.text = "Welcome back, ${user.name}"
     }
+//    private fun fetchAll(){
+//
+//        GlobalScope.launch {
+//            expArray = db.expenseDao().getAll() as ArrayList<ExpenseModel>
+////            db.expenseDao().insertAll(ExpenseModel(0, R.drawable.hotdog, "Evening", "Note", "18:40", 50.00))
+//            runOnUiThread{
+//                updateTotalExpense()
+//                expenseAdapter.setData(expArray)
+//            }
+//
+//        }
+//    }
     private fun addExpenses()
     {
 //        expArray.add(ExpenseModel(R.drawable.pizza_slice, "Pizza", "4:20", 2.30))
@@ -179,6 +182,6 @@ class HomePage : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
-        fetchAll()
+//        fetchAll()
     }
 }

@@ -7,6 +7,9 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.firebase.FirestoreClass
+import com.example.myapplication.models.Expense
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -40,9 +43,10 @@ class AddExpenseActivity : AppCompatActivity() {
     private lateinit var amount: TextView
 
 
-    private lateinit var dbRef : DatabaseReference
+//    private lateinit var dbRef : DatabaseReference
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
@@ -53,19 +57,47 @@ class AddExpenseActivity : AppCompatActivity() {
         dropdown1 = findViewById(R.id.dropdown1)
         dropdown2 = findViewById(R.id.dropdown2)
 
-
+        saveButton = findViewById(R.id.saveButton)
+        saveButton.setOnClickListener {
+            addExpense()
+            finish()
+        }
         // Rest of your code...
     }
 
-
-    private fun saveExpenseData(){
-
-    }
-
-    private fun getTransactionType(): String {
+    private fun getPaymentMethod(): String {
         dropdown1 = findViewById(R.id.dropdown1)
         return dropdown1.selectedItem.toString()
     }
+    private fun getCurrentUserID(): String {
+        return FirebaseAuth.getInstance().currentUser!!.uid
+    }
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun addExpense(){
+        var userId = getCurrentUserID()
+        var expenseType = getExpenseType()
+        var paymentMethod = getPaymentMethod()
+        var note = getNote()
+        var amount = findViewById<TextView>(R.id.amount).toString()
+        if(validateForm(expenseType, paymentMethod, amount)){
+            val expense = Expense(userId, "Expense", expenseType, paymentMethod, getCurrentTime(), note, amount)
+            FirestoreClass().addExpense(this, expense)
+        }
+        else{
+            Toast.makeText(this, "Please fill out all the fields", Toast.LENGTH_LONG)
+                .show()
+        }
+    }
+
+    private fun validateForm(expenseType: String, paymentMethod: String, amount: String): Boolean{
+        if(expenseType.isEmpty() || paymentMethod.isEmpty() || amount.isEmpty()) return false
+        return true
+    }
+
+//    private fun getTransactionType(): String {
+//        dropdown1 = findViewById(R.id.dropdown1)
+//        return dropdown1.selectedItem.toString()
+//    }
 
     private fun getExpenseType() : String{
         dropdown2 = findViewById(R.id.dropdown2)
