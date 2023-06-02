@@ -75,7 +75,6 @@
             android:id="@+id/constraintLayout"
             android:layout_width="315dp"
             android:layout_height="180dp"
-            android:background="@drawable/home_page_pink_border_rounded_rectangle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,10 +135,10 @@
                 android:textColor="@color/home_page_text_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.073"
+                app:layout_constraintHorizontal_bias="0.379"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.901" />
+                app:layout_constraintVertical_bias="0.9" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -149,12 +148,13 @@
                 android:fontFamily="@font/inter"
                 android:text="$500"
                 android:textColor="@color/home_page_text_primary"
-                android:textSize="18sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.71"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.896" />
+                app:layout_constraintVertical_bias="0.894" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -169,8 +169,7 @@
             app:layout_constraintHorizontal_bias="0.915"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.039">
-        </androidx.appcompat.widget.AppCompatButton>
+            app:layout_constraintVertical_bias="0.039"></androidx.appcompat.widget.AppCompatButton>
 
         <TextView
             android:layout_width="wrap_content"

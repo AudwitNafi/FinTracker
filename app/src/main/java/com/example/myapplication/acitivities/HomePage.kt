@@ -137,7 +137,7 @@ class HomePage : AppCompatActivity() {
             totalExp += expense.amount?.toDouble() ?: 0.0
         }
         val tvTotalExpense: TextView = findViewById(R.id.tv_total_expense)
-        tvTotalExpense.text = "$%.2f".format(totalExp)
+        tvTotalExpense.text = "%.2f".format(totalExp)
     }
 
     private fun undoDelete() {

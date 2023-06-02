@@ -143,33 +143,31 @@ class AddExpenseActivity : AppCompatActivity() {
         tvDollarAmount.text = String.format("%f", dollar)
     }
     fun onDigitPressed(view: View) {
+        val buttonId = view.id
+        val tvAmount: TextView = findViewById(R.id.amount)
 
-        button7 = findViewById(R.id.button7)
-        button8 = findViewById(R.id.button8)
-        button9 = findViewById(R.id.button9)
-        button4= findViewById(R.id.button4)
-        button5 = findViewById(R.id.button5)
-        button6  = findViewById(R.id.button6)
-
-        button1 = findViewById(R.id.button1)
-        button2 = findViewById(R.id.button2)
-        button3  = findViewById(R.id.button3)
-
-        buttonDot  = findViewById(R.id.buttonDot)
-        button0  = findViewById(R.id.button0)
-        buttonBack  = findViewById(R.id.buttonBack)
-
-
-        val tvAmount : TextView = findViewById(R.id.amount)
-
-        if (tvAmount.text.toString() == "0") {
-            tvAmount.text = (view as Button).text
-        } else {
-            tvAmount.append((view as Button).text)
+        when (buttonId) {
+            R.id.buttonBack -> {
+                val currentAmount = tvAmount.text.toString()
+                if (currentAmount.length > 1) {
+                    val newAmount = currentAmount.substring(0, currentAmount.length - 1)
+                    tvAmount.text = newAmount
+                } else {
+                    tvAmount.text = "0"
+                }
+            }
+            else -> {
+                if (tvAmount.text.toString() == "0") {
+                    tvAmount.text = (view as Button).text
+                } else {
+                    tvAmount.append((view as Button).text)
+                }
+            }
         }
 
         calculateDollarAmount()
     }
+
 
     fun onClearPressed(view: View){
         val clearBtn : ImageButton = findViewById(R.id.clear_btn)

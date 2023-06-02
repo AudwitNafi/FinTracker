@@ -1,42 +1,52 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:style="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
     android:background="@android:color/transparent"
 
     >
+
+
+    <!-- Button Row 1 -->
 
     <LinearLayout
         android:id="@+id/dropdownRow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@android:color/transparent"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/buttonRow1"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982">
 
 
         <!-- Dropdown 1 -->
+
 
         <Spinner
             android:id="@+id/dropdown1"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@null"
             android:entries="@array/dropdown1_items"
+            android:gravity="center"
             android:spinnerMode="dropdown"
-
 
             />
 
-
         <View
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             android:layout_height="11dp" />
 
 
@@ -50,30 +60,30 @@
             android:spinnerMode="dropdown" />
 
         <View
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="11dp" />
 
         <!-- Save Button -->
         <Button
             android:id="@+id/saveButton"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="68dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
+            android:backgroundTint="@color/black"
+            android:foreground="@android:color/transparent"
             android:text="Save"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-            android:textColor="#000"
+            android:textColor="@color/white"
+            android:theme="@style/Theme.MaterialComponents.Bridge"
             app:cornerRadius="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dropdown2"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-            />
 
     </LinearLayout>
 
-
-    <!-- Button Row 1 -->
     <View
         android:id="@+id/view"
         android:layout_width="365dp"
@@ -81,9 +91,10 @@
         android:background="#80CCCCCC"
         style:layout_constraintEnd_toEndOf="parent"
         style:layout_constraintStart_toStartOf="parent"
-        style:layout_constraintTop_toBottomOf="@id/dropdownRow" />
+        style:layout_constraintTop_toTopOf="@id/buttonRow1" />
 
     <!-- Button Row 2 -->
+
     <LinearLayout
         android:id="@+id/buttonRow1"
         android:layout_width="0dp"
@@ -91,9 +102,12 @@
         android:background="@android:color/transparent"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/buttonRow2"
+        app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.982">
 
 
         <com.google.android.material.button.MaterialButton
@@ -101,7 +115,7 @@
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginHorizontal="55dp"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/inter"
@@ -162,63 +176,63 @@
         android:id="@+id/buttonRow2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@android:color/transparent"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/buttonRow3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/button4"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:fontFamily="@font/inter"
-            android:background="@drawable/button_background"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginHorizontal="55dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="4"
-            android:textFontWeight="650"
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/button5"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="0dp"
-            android:textFontWeight="650"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="5"
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/button6"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
-            android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="55dp"
-            android:fontFamily="@font/inter"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
-
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="6"
+
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
     </LinearLayout>
 
@@ -227,65 +241,65 @@
         android:id="@+id/buttonRow3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@android:color/transparent"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/buttonRow4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/button1"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginHorizontal="55dp"
-            android:fontFamily="@font/inter"
             android:background="@drawable/button_background"
-
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="1"
+
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/button2"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
-            android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="0dp"
-            android:fontFamily="@font/inter"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
-
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="2"
+
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/button3"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
             android:layout_marginHorizontal="55dp"
-            android:fontFamily="@font/inter"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
-
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="3"
+
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
     </LinearLayout>
 
@@ -294,67 +308,69 @@
         android:id="@+id/buttonRow4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@android:color/transparent"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/buttonDot"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginHorizontal="55dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="."
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/button0"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:fontFamily="@font/inter"
             android:layout_marginHorizontal="0dp"
             android:layout_marginBottom="20dp"
-            android:textFontWeight="650"
             android:background="@drawable/button_background"
-
+            android:fontFamily="@font/inter"
+            android:onClick="onDigitPressed"
             android:text="0"
+
             android:textColor="#C0808080"
+            android:textFontWeight="650"
             android:textSize="33dp"
-            app:cornerRadius="36dp"
-            android:onClick="onDigitPressed"/>
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
         <Button
             android:id="@+id/buttonBack"
-            android:theme="@style/Theme.MaterialComponents.Bridge"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:textFontWeight="650"
-            android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="55dp"
-            android:fontFamily="@font/inter"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
-
-            android:text="B"
-            android:textColor="#C0808080"
-            android:textSize="33dp"
-            app:cornerRadius="36dp"
+            android:fontFamily="@font/inter"
             android:onClick="onDigitPressed"
-            />
+            android:text= "x"
+
+            android:textColor="#C0808080"
+            android:textFontWeight="650"
+            android:textSize="33dp"
+            android:theme="@style/Theme.MaterialComponents.Bridge"
+            app:cornerRadius="36dp" />
 
     </LinearLayout>
+
+
+
 
     <TextView
         android:id="@+id/date"
@@ -375,11 +391,14 @@
         app:layout_constraintVertical_bias="0.436" />
 
     <EditText
+
         android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="21dp"
         android:fontFamily="@font/inter"
+
+        android:foreground="@android:color/transparent"
 
         android:hint="Add Note"
 
@@ -388,7 +407,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.316"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.431" />
@@ -397,11 +416,11 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expense"
-        android:textFontWeight="650"
-        android:gravity="center"
         android:fontFamily="@font/inter"
+        android:gravity="center"
+        android:text="Expense"
         android:textColor="@color/black"
+        android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="@+id/buttonRow4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -412,11 +431,11 @@
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:textFontWeight="650"
-        android:gravity="center"
         android:fontFamily="@font/inter"
+        android:gravity="center"
+        android:text="Cancel"
         android:textColor="#C0000000"
+        android:textFontWeight="650"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
@@ -475,14 +494,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:onClick="onClearPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.253"
-        style:srcCompat="@android:drawable/ic_menu_revert"
-        android:onClick="onClearPressed"/>
+        style:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
         android:id="@+id/dollar_amount"
