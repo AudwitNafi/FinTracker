@@ -102,12 +102,20 @@ class HomePage : AppCompatActivity() {
             val intent = Intent(this, AddExpenseActivity::class.java)
             startActivity(intent)
         }
+
+        expenseAdapter.setOnItemClickListener(object : ExpRecyclerAdapter.OnItemClickListener {
+            override fun onItemClick(expense: Expense) {
+                val intent = Intent(applicationContext, DetailsActivity::class.java)
+                intent.putExtra("expense", expense)
+                startActivity(intent)
+            }
+        })
+
     }
 
     override fun onResume() {
         super.onResume()
 
-        // Fetch expenses from Firestore and update expArray
         FirestoreClass().getExpenses(this)
     }
 
@@ -118,8 +126,6 @@ class HomePage : AppCompatActivity() {
         tvName.text = "Welcome back, ${user.name}"
         tvBudget.text = "$"+ "${user.budget}"
     }
-
-
 
     fun displayExpenses(expenses: ArrayList<Expense>) {
         expArray.clear()
@@ -164,12 +170,7 @@ class HomePage : AppCompatActivity() {
         deleted = expense
         old = ArrayList(expArray) // Create a new ArrayList with the current content of expArray
 
-        // TODO: Implement deletion from Firestore here
-        // You can use FirestoreClass or any other Firestore library to delete the expense from the Firestore database
-        // After successful deletion, update the expArray and UI accordingly
-
-        FirestoreClass().deleteExpense(this,deleted)
-
+        FirestoreClass().deleteExpense(this, deleted)
 
         expArray.remove(expense) // Remove the expense from the expArray
         runOnUiThread {
