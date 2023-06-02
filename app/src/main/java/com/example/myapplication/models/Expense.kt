@@ -1,5 +1,6 @@
 import android.os.Parcel
 import android.os.Parcelable
+import java.io.Serializable
 
 data class Expense(
     var id: String? = null,
@@ -10,7 +11,7 @@ data class Expense(
     var date: String? = null,
     var note: String? = null,
     var amount: String? = null
-) : Parcelable {
+) : Serializable {
     constructor() : this("", null, null, null, null, null, null, null)
 
     constructor(parcel: Parcel) : this(
@@ -24,7 +25,7 @@ data class Expense(
         parcel.readString()
     )
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
+    fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
         parcel.writeString(userId)
         parcel.writeString(transactionType)
@@ -35,7 +36,7 @@ data class Expense(
         parcel.writeString(amount)
     }
 
-    override fun describeContents(): Int {
+    fun describeContents(): Int {
         return 0
     }
 

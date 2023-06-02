@@ -11,6 +11,16 @@ import com.example.myapplication.R
 
 class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapter<ExpRecyclerAdapter.ViewHolder>() {
 
+    private var listener: OnItemClickListener? = null
+
+    interface OnItemClickListener {
+        fun onItemClick(expense: Expense)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val expImg: ImageView = itemView.findViewById(R.id.expImg)
         val expName: TextView = itemView.findViewById(R.id.textViewExpenseName)
@@ -33,6 +43,10 @@ class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapte
         holder.expName.text = currentItem.expenseType
         holder.expTime.text = currentItem.date
         holder.expAmt.text = "$" + currentItem.amount
+
+        holder.itemView.setOnClickListener {
+            listener?.onItemClick(currentItem)
+        }
     }
 
     fun setData(expenses: ArrayList<Expense>) {

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.acitivities.HomePage
 import com.example.myapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
