@@ -10,6 +10,7 @@ import com.example.myapplication.R
 import com.example.myapplication.models.Expense
 
 class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapter<ExpRecyclerAdapter.ViewHolder>() {
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val expImg: ImageView = itemView.findViewById(R.id.expImg)
         val expName: TextView = itemView.findViewById(R.id.textViewExpenseName)

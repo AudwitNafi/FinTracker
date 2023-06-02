@@ -19,6 +19,9 @@ import com.example.myapplication.firebase.FirestoreClass
 import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomePage : AppCompatActivity() {
     private lateinit var mUserName: String
@@ -36,6 +39,15 @@ class HomePage : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        val tvDay: TextView = findViewById(R.id.tv_day)
+        val dayOfWeek = SimpleDateFormat("EEEE", Locale.getDefault()).format(Date())
+        tvDay.text = dayOfWeek
+
+        // Set the current date in 'tv_date' TextView
+        val tvDate: TextView = findViewById(R.id.tv_date)
+        val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        tvDate.text = currentDate
 
         FirestoreClass().signInUser(this)
 
@@ -66,10 +78,8 @@ class HomePage : AppCompatActivity() {
         linearLayoutManager = LinearLayoutManager(this)
 
         val expRecyclerView: RecyclerView = findViewById(R.id.expRecyclerView)
-        expRecyclerView.apply {
-            adapter = expenseAdapter
-            layoutManager = linearLayoutManager
-        }
+        expRecyclerView.adapter = expenseAdapter // Set the adapter to the RecyclerView
+        expRecyclerView.layoutManager = linearLayoutManager
 
         val itemTouchHelper = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             override fun onMove(
@@ -96,10 +106,29 @@ class HomePage : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        // Fetch expenses from Firestore and update expArray
+        FirestoreClass().getExpenses(this)
+    }
+
     fun setUserData(user: User) {
         mUserName = user.name
         val tvName: TextView = findViewById(R.id.tv_username)
         tvName.text = "Welcome back, ${user.name}"
+    }
+
+
+
+    fun displayExpenses(expenses: ArrayList<Expense>) {
+        expArray.clear()
+        expArray.addAll(expenses)
+
+        runOnUiThread {
+            expenseAdapter.setData(expArray)
+            updateTotalExpense()
+        }
     }
 
     private fun updateTotalExpense() {
@@ -107,8 +136,8 @@ class HomePage : AppCompatActivity() {
         for (expense in expArray) {
             totalExp += expense.amount?.toDouble() ?: 0.0
         }
-        val expToday = findViewById<TextView>(R.id.totalExpToday)
-        expToday.text = "$ %.2f".format(totalExp)
+        val tvTotalExpense: TextView = findViewById(R.id.tv_total_expense)
+        tvTotalExpense.text = "$%.2f".format(totalExp)
     }
 
     private fun undoDelete() {
@@ -133,24 +162,20 @@ class HomePage : AppCompatActivity() {
 
     private fun deleteExpense(expense: Expense) {
         deleted = expense
-        old = expArray
+        old = ArrayList(expArray) // Create a new ArrayList with the current content of expArray
 
         // TODO: Implement deletion from Firestore here
         // You can use FirestoreClass or any other Firestore library to delete the expense from the Firestore database
         // After successful deletion, update the expArray and UI accordingly
 
-//        expArray = expArray.filter { it.id != expense.id } as ArrayList<Expense>
-//        runOnUiThread {
-//            updateTotalExpense()
-//            expenseAdapter.setData(expArray)
-//            showSnackBar()
-//        }
-    }
+        FirestoreClass().deleteExpense(this,deleted)
 
-    override fun onResume() {
-        super.onResume()
-        // TODO: Fetch expenses from Firestore and update expArray
-    }
 
+        expArray.remove(expense) // Remove the expense from the expArray
+        runOnUiThread {
+            updateTotalExpense()
+            expenseAdapter.setData(expArray)
+            showSnackBar()
+        }
+    }
 }
-

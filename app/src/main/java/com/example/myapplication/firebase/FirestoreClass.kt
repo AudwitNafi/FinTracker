@@ -12,6 +12,39 @@ import com.google.firebase.firestore.SetOptions
 
 class FirestoreClass {
     private val mFireStore = FirebaseFirestore.getInstance()
+
+    fun deleteExpense(activity: HomePage, expense: Expense) {
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("Expenses")
+            .document(expense.userId!!)
+            .delete()
+            .addOnSuccessListener {
+                Log.d(activity.javaClass.simpleName, "Expense deleted successfully")
+                // Perform any additional actions or callbacks here, if needed
+            }
+            .addOnFailureListener { exception ->
+                Log.e(activity.javaClass.simpleName, "Error deleting expense: $exception")
+            }
+    }
+
+
+    fun getExpenses(activity: HomePage) {
+        val db = FirebaseFirestore.getInstance()
+        val userId = getCurrentUserId()
+
+        db.collection("Expenses")
+            .whereEqualTo("userId", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val expenses = querySnapshot.toObjects(Expense::class.java)
+                activity.displayExpenses(expenses as ArrayList<Expense>)
+            }
+            .addOnFailureListener { exception ->
+                Log.e(activity.javaClass.simpleName, "Error retrieving expenses: $exception")
+            }
+    }
+
     fun registerUser(activity: SignUpActivity, userInfo: User)
     {
         mFireStore.collection("Users")
