@@ -153,11 +153,19 @@ class HomePage : AppCompatActivity() {
             expenseAdapter.setData(expArray)
             updateTotalExpense()
         }
+
+        // Rewrite the expenses back to the database
+        FirestoreClass().rewriteExpenses(this, expArray)
     }
+
 
     private fun showSnackBar() {
         val view = findViewById<View>(R.id.coordinator)
         val snackBar = Snackbar.make(view, "Expense deleted!", Snackbar.LENGTH_LONG)
+
+        // Set the bottom_navigation_view as the anchor view to position the Snackbar above it
+        snackBar.setAnchorView(R.id.bottom_navigation_view)
+
         snackBar.setAction("Undo") {
             undoDelete()
         }
@@ -165,6 +173,7 @@ class HomePage : AppCompatActivity() {
             .setTextColor(ContextCompat.getColor(this, R.color.white))
             .show()
     }
+
 
     private fun deleteExpense(expense: Expense) {
         deleted = expense

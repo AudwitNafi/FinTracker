@@ -3,6 +3,7 @@ package com.example.myapplication.firebase
 import Expense
 import android.app.Activity
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.acitivities.*
@@ -14,6 +15,23 @@ import java.util.*
 
 class FirestoreClass {
     private val mFireStore = FirebaseFirestore.getInstance()
+
+    fun rewriteExpenses(context: Context, expenses: List<Expense>) {
+        val db = FirebaseFirestore.getInstance()
+        val userId = getCurrentUserId()
+
+        for (expense in expenses) {
+            db.collection("Expenses")
+                .document(expense.id.toString())
+                .set(expense)
+                .addOnSuccessListener {
+                    // Handle success
+                }
+                .addOnFailureListener { exception ->
+                    // Handle failure
+                }
+        }
+    }
 
     fun deleteExpense(activity: HomePage, expense: Expense) {
         val db = FirebaseFirestore.getInstance()
