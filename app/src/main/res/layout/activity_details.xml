@@ -13,26 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
-        android:textFontWeight="650"
-        android:textColor="@color/black"
         android:text="Expense Details"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="650"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.69" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintVertical_bias="0.663">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,18 +55,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Amount"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Amount" />
 
             <TextView
                 android:id="@+id/amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
+                android:gravity="center"
                 android:text="BDT 50.00"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:gravity="center"/>
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -79,19 +80,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Category"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Category" />
 
             <TextView
                 android:id="@+id/category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Transportation"
-                android:textSize="24sp"
                 android:gravity="center"
+                android:text="Transportation"
                 android:textColor="@color/black"
-                />
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,19 +105,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Date"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Date &amp; Time" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="20/5/2023"
-                android:textSize="24sp"
                 android:gravity="center"
+                android:text="20/5/2023"
                 android:textColor="@color/black"
-                />
+                android:textSize="24sp" />
         </LinearLayout>
 
 
@@ -132,19 +131,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Payment Method"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Payment Method" />
 
             <TextView
                 android:id="@+id/payment_method"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Bkash"
-                android:textSize="24sp"
                 android:gravity="center"
+                android:text="Bkash"
                 android:textColor="@color/black"
-                />
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -158,19 +156,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Note"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Note" />
 
             <TextView
                 android:id="@+id/note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Gave someone money"
-                android:textSize="24sp"
                 android:gravity="center"
+                android:text="Gave someone money"
                 android:textColor="@color/black"
-                />
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>
