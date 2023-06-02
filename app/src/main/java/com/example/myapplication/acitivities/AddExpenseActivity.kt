@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var dropdownRow: LinearLayout
@@ -87,9 +88,10 @@ class AddExpenseActivity : AppCompatActivity() {
         val paymentMethod = getPaymentMethod()
         val note = getNote()
         val amount = getAmount()
+        val dateTime = getCurrentTime()
 
         if (validateForm(expenseType, paymentMethod, amount)) {
-            val expense = Expense(userId = userId, expenseType = expenseType, paymentMethod = paymentMethod, note = note, amount = amount)
+            val expense = Expense(userId = userId, expenseType = expenseType, paymentMethod = paymentMethod, note = note, amount = amount, date = dateTime)
 
             val db = FirebaseFirestore.getInstance()
             val expenseCollection = db.collection("Expenses")
