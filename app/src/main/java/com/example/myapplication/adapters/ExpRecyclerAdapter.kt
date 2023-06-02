@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import java.util.*
 
 class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapter<ExpRecyclerAdapter.ViewHolder>() {
 
@@ -41,6 +42,18 @@ class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapte
         val currentItem = expArray[position]
         // Set the values from the Expense object to the views in the ViewHolder
         holder.expName.text = currentItem.expenseType
+        when(holder.expName.text){
+            "Groceries" -> holder.expImg.setImageResource(R.drawable.ic_groceries)
+            "Pets" -> holder.expImg.setImageResource(R.drawable.ic_pet)
+            "Entertainment" -> holder.expImg.setImageResource(R.drawable.ic_entertainment)
+            "Snacks" -> holder.expImg.setImageResource(R.drawable.burger)
+            "Transport" -> holder.expImg.setImageResource(R.drawable.ic_transportation)
+            "Study" -> holder.expImg.setImageResource(R.drawable.ic_study)
+            "Clothing" -> holder.expImg.setImageResource(R.drawable.ic_clothing)
+            "Subscription" -> holder.expImg.setImageResource(R.drawable.ic_subscription)
+            "Accessories" -> holder.expImg.setImageResource(R.drawable.ic_tools)
+            "Meals" -> holder.expImg.setImageResource(R.drawable.ic_restaurant)
+        }
         holder.expTime.text = currentItem.date
         holder.expAmt.text = "$" + currentItem.amount
 

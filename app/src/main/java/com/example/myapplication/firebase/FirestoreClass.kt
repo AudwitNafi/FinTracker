@@ -2,6 +2,7 @@ package com.example.myapplication.firebase
 
 import Expense
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.acitivities.*
@@ -9,6 +10,7 @@ import com.example.myapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import java.util.*
 
 class FirestoreClass {
     private val mFireStore = FirebaseFirestore.getInstance()
@@ -44,6 +46,15 @@ class FirestoreClass {
             .addOnFailureListener { exception ->
                 Log.e(activity.javaClass.simpleName, "Error retrieving expenses: $exception")
             }
+    }
+
+    fun updateUserName(activity: ProfileActivity, username: String)
+    {
+        val userRef = mFireStore.collection("Users").document(getCurrentUserId())
+        userRef
+            .update("name", username)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error updating document", e) }
     }
 
     fun registerUser(activity: SignUpActivity, userInfo: User)
