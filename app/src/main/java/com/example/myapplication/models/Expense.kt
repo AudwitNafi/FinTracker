@@ -1,21 +1,17 @@
-package com.example.myapplication.models
-
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Expense (
-    var userId : String? =null,
-    var transactionType : String?=null,
-    var expenseType : String? =null,
-    var paymentMethod: String? =null,
-    var date : String?=null,
-    var note : String?=null,
-    var amount : String ?=null,
-    ): Parcelable{
-
-    constructor() : this("") {
-        // Empty constructor body
-    }
+data class Expense(
+    var id: String? = null,
+    var userId: String? = null,
+    var transactionType: String? = null,
+    var expenseType: String? = null,
+    var paymentMethod: String? = null,
+    var date: String? = null,
+    var note: String? = null,
+    var amount: String? = null
+) : Parcelable {
+    constructor() : this("", null, null, null, null, null, null, null)
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -24,12 +20,12 @@ data class Expense (
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
+        parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) =with(parcel){
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
         parcel.writeString(userId)
         parcel.writeString(transactionType)
         parcel.writeString(expenseType)
@@ -52,5 +48,4 @@ data class Expense (
             return arrayOfNulls(size)
         }
     }
-
 }

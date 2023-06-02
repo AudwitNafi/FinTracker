@@ -1,5 +1,7 @@
 package com.example.myapplication.acitivities
 
+//import com.google.firebase.database.DatabaseReference
+import Expense
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -7,10 +9,8 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.example.myapplication.firebase.FirestoreClass
-import com.example.myapplication.models.Expense
 import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.FirebaseFirestore
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -81,24 +81,34 @@ class AddExpenseActivity : AppCompatActivity() {
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun addExpense(){
-        var userId = getCurrentUserID()
-        var expenseType = getExpenseType()
-        var paymentMethod = getPaymentMethod()
-        var note = getNote()
-        var amount = getAmount()
+    private fun addExpense() {
+        val userId = getCurrentUserID()
+        val expenseType = getExpenseType()
+        val paymentMethod = getPaymentMethod()
+        val note = getNote()
+        val amount = getAmount()
 
-        print(amount)
+        if (validateForm(expenseType, paymentMethod, amount)) {
+            val expense = Expense(userId = userId, expenseType = expenseType, paymentMethod = paymentMethod, note = note, amount = amount)
 
-        if(validateForm(expenseType, paymentMethod, amount)){
-            val expense = Expense(userId, "Expense", expenseType, paymentMethod, getCurrentTime(), note, amount)
-            FirestoreClass().addExpense(this, expense)
-        }
-        else{
-            Toast.makeText(this, "Please fill out all the fields", Toast.LENGTH_LONG)
-                .show()
+            val db = FirebaseFirestore.getInstance()
+            val expenseCollection = db.collection("Expenses")
+
+            val expenseDocument = expenseCollection.document()
+            expense.id = expenseDocument.id // Assign the unique ID to the expense
+
+            expenseDocument.set(expense)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Expense added successfully", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Failed to add expense: ${exception.message}", Toast.LENGTH_LONG).show()
+                }
+        } else {
+            Toast.makeText(this, "Please fill out all the fields", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun validateForm(expenseType: String, paymentMethod: String, amount: String): Boolean{
         if(expenseType.isEmpty() || paymentMethod.isEmpty() || amount.isEmpty()) return false
