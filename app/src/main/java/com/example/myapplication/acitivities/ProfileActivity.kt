@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,8 +17,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.util.HashMap
 
 class ProfileActivity : AppCompatActivity() {
+    private lateinit var mUser: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +57,23 @@ class ProfileActivity : AppCompatActivity() {
         signOutBtn.setOnClickListener {
             signOut()
         }
+
+        var saveChangesBtn : Button = findViewById(R.id.save_changes_btn)
+        saveChangesBtn.setOnClickListener {
+            updateUserData()
+        }
     }
 
+    fun updateUserData()
+    {
+        val etName: EditText = findViewById(R.id.et_change_name)
+//        val userHashMap = HashMap<String, Any>()
+        if(etName.text.toString() != mUser.name)
+            FirestoreClass().updateUserName(this, etName.text.toString())
+        finish()
+    }
     fun setUserData(user: User){
+        mUser = user
         val dp : ImageView = findViewById(R.id.profile_picture)
         val username : TextView = findViewById(R.id.tv_profile_username)
 
@@ -72,3 +89,4 @@ class ProfileActivity : AppCompatActivity() {
         finish()
     }
 }
+
