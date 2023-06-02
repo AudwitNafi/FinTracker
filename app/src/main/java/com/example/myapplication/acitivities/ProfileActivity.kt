@@ -69,7 +69,7 @@ class ProfileActivity : AppCompatActivity() {
         val etName: EditText = findViewById(R.id.et_change_name)
         val etBudget: EditText = findViewById(R.id.et_set_budget)
 
-        if(etName.text.toString() != mUser.name)
+        if(etName.text.toString() != mUser.name && etName.text.toString()!="")
             FirestoreClass().updateUserName(this, etName.text.toString())
         FirestoreClass().updateBudget(this, etBudget.text.toString())
         finish()
