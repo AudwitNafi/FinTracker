@@ -56,6 +56,14 @@ class FirestoreClass {
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully updated!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error updating document", e) }
     }
+    fun updateBudget(activity: ProfileActivity, budget: String)
+    {
+        val userRef = mFireStore.collection("Users").document(getCurrentUserId())
+        userRef
+            .update("budget", budget)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error updating document", e) }
+    }
 
     fun registerUser(activity: SignUpActivity, userInfo: User)
     {

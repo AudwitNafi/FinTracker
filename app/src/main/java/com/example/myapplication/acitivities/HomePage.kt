@@ -114,7 +114,9 @@ class HomePage : AppCompatActivity() {
     fun setUserData(user: User) {
         mUserName = user.name
         val tvName: TextView = findViewById(R.id.tv_username)
+        val tvBudget: TextView = findViewById(R.id.tv_budget)
         tvName.text = "Welcome back, ${user.name}"
+        tvBudget.text = "$"+ "${user.budget}"
     }
 
 

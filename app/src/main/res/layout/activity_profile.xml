@@ -85,6 +85,14 @@
             android:drawableStart="@drawable/baseline_person_24"
             android:drawablePadding="20dp"
             android:hint="Change Username" />
+        <EditText
+            android:id="@+id/et_set_budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:drawableStart="@drawable/baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="Set Monthly Budget" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/save_changes_btn"

@@ -8,7 +8,7 @@ data class User (
     val name: String = "",
     val email: String = "",
     val image: String = "",
-    val token: String = ""
+    val budget: String = ""
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -26,7 +26,7 @@ data class User (
         writeString(name)
         writeString(email)
         writeString(image)
-        writeString(token)
+        writeString(budget)
     }
 
     companion object CREATOR : Parcelable.Creator<User> {
