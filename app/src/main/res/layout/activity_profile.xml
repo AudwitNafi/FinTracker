@@ -154,16 +154,22 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
-        android:layout_width="412dp"
-        android:layout_height="53dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:background="@color/white"
+        app:itemIconSize="24dp"
+        app:itemIconTint="#FFBF00"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_anchorGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/activity_main_navbar"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/activity_main_navbar"
+
+        ></com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <Button
         android:id="@+id/temp_sign_out_btn"

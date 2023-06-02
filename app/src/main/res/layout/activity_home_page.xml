@@ -223,6 +223,10 @@
         app:layout_anchorGravity="bottom|center"
         app:menu="@menu/activity_main_navbar"
         style="@style/BottomNavigationStyle"
+        app:itemIconTint="#FFBF00"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconSize="24dp"
+
         />
 
 
