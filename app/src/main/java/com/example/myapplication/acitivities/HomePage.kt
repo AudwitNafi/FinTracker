@@ -1,5 +1,6 @@
 package com.example.myapplication.acitivities
 
+import Expense
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -11,17 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.adapters.ExpRecyclerAdapter
-import com.example.myapplication.models.Expense
 import com.example.myapplication.R
-import com.example.myapplication.acitivities.ReportGenerateActivity
+import com.example.myapplication.adapters.ExpRecyclerAdapter
 import com.example.myapplication.firebase.FirestoreClass
 import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class HomePage : AppCompatActivity() {
     private lateinit var mUserName: String
@@ -168,7 +166,7 @@ class HomePage : AppCompatActivity() {
         // You can use FirestoreClass or any other Firestore library to delete the expense from the Firestore database
         // After successful deletion, update the expArray and UI accordingly
 
-        //FirestoreClass().deleteExpense(this,deleted)
+        FirestoreClass().deleteExpense(this,deleted)
 
 
         expArray.remove(expense) // Remove the expense from the expArray

@@ -1,11 +1,11 @@
 package com.example.myapplication.firebase
 
+import Expense
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.acitivities.*
-import com.example.myapplication.models.Expense
 import com.example.myapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,20 +15,20 @@ import java.util.*
 class FirestoreClass {
     private val mFireStore = FirebaseFirestore.getInstance()
 
-//    fun deleteExpense(activity: HomePage, expense: Expense) {
-//        val db = FirebaseFirestore.getInstance()
-//
-//        db.collection("Expenses")
-//            .document(expense.id!!)
-//            .delete()
-//            .addOnSuccessListener {
-//                Log.d(activity.javaClass.simpleName, "Expense deleted successfully")
-//                // Perform any additional actions or callbacks here, if needed
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.e(activity.javaClass.simpleName, "Error deleting expense: $exception")
-//            }
-//    }
+    fun deleteExpense(activity: HomePage, expense: Expense) {
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("Expenses")
+            .document(expense.id!!)
+            .delete()
+            .addOnSuccessListener {
+                Log.d(activity.javaClass.simpleName, "Expense deleted successfully")
+                // Perform any additional actions or callbacks here, if needed
+            }
+            .addOnFailureListener { exception ->
+                Log.e(activity.javaClass.simpleName, "Error deleting expense: $exception")
+            }
+    }
 
 
 
