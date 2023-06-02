@@ -15,8 +15,15 @@
 
     <string-array name="dropdown2_items">
         <item>Pets</item>
-        <item>Grocery</item>
-        <item>Drugs</item>
+        <item>Groceries</item>
+        <item>Entertainment</item>
+        <item>Snacks</item>
+        <item>Transport</item>
+        <item>Study</item>
+        <item>Clothing</item>
+        <item>Subscription</item>
+        <item>Accessories</item>
+        <item>Meals</item>
         <!-- Add more items as needed -->
     </string-array>
     <string name="title_activity_report_generate">ReportGenerateActivity</string>
