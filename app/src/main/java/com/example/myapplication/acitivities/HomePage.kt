@@ -168,7 +168,7 @@ class HomePage : AppCompatActivity() {
         // You can use FirestoreClass or any other Firestore library to delete the expense from the Firestore database
         // After successful deletion, update the expArray and UI accordingly
 
-        FirestoreClass().deleteExpense(this,deleted)
+        //FirestoreClass().deleteExpense(this,deleted)
 
 
         expArray.remove(expense) // Remove the expense from the expArray

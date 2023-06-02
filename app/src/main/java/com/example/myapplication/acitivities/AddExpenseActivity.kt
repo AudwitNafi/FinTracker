@@ -75,9 +75,10 @@ class AddExpenseActivity : AppCompatActivity() {
         return FirebaseAuth.getInstance().currentUser!!.uid
     }
 
-    private fun getAmount() : String {
-        return findViewById<TextView>(R.id.amount).toString()
+    private fun getAmount(): String {
+        return findViewById<TextView>(R.id.amount).text.toString()
     }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addExpense(){
