@@ -1,5 +1,4 @@
 package com.example.myapplication.acitivities
-
 import Expense
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.example.myapplication.R
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.LegendEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -55,7 +56,7 @@ class ReportGenerateActivity : AppCompatActivity() {
         fetchExpenseData()
     }
 
-    private fun  getCurrentUserID(): String {
+    private fun getCurrentUserID(): String {
         return FirebaseAuth.getInstance().currentUser!!.uid
     }
 
@@ -98,15 +99,21 @@ class ReportGenerateActivity : AppCompatActivity() {
         return chartData
     }
 
+
     private fun setupPieChart(entries: List<PieEntry>) {
-        val dataSet = PieDataSet(entries, "Categories")
+        val dataSet = PieDataSet(entries, null)
         dataSet.colors = ColorTemplate.MATERIAL_COLORS.toList()
 
         val data = PieData(dataSet)
         pieChart.data = data
         pieChart.description.isEnabled = false
-        pieChart.legend.isEnabled = false
+        pieChart.legend.isEnabled = true
+        pieChart.legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER // Align legends in the center
+        pieChart.legend.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM // Align legends at the bottom
+        pieChart.legend.orientation = Legend.LegendOrientation.HORIZONTAL // Display legends in a horizontal layout
+        pieChart.legend.setDrawInside(false) // Ensure legends are not drawn inside the pie chart
         pieChart.setDrawEntryLabels(false)
+        pieChart.setDrawCenterText(false)
         pieChart.setEntryLabelTextSize(8f)
         pieChart.setEntryLabelColor(Color.BLACK)
 
@@ -116,4 +123,6 @@ class ReportGenerateActivity : AppCompatActivity() {
         pieChart.animateY(1000)
         pieChart.invalidate()
     }
+
 }
+
