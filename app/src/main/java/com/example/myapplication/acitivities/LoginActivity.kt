@@ -18,11 +18,10 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -31,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val signUpBtn : TextView = findViewById(R.id.btn_sign_up)
-        val signInBtn : Button = findViewById(R.id.btn_sign_in)
+        val signUpBtn: TextView = findViewById(R.id.btn_sign_up)
+        val signInBtn: Button = findViewById(R.id.btn_sign_in)
 
         signInBtn.setOnClickListener {
             signInUser()
@@ -44,17 +43,26 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun signInSuccess(user: User){
+    fun signInSuccess(user: User) {
         startActivity(Intent(this, HomePage::class.java))
         finish()
     }
-    private fun signInUser()
-    {
+
+    private fun signInUser() {
         val etEmail = findViewById<EditText>(R.id.et_email_sign_in)
         val etPassword = findViewById<EditText>(R.id.et_password_sign_in)
 
-        val email : String = etEmail.text.toString()
-        val password : String = etPassword.text.toString()
+        val email: String = etEmail.text.toString().trim()
+        val password: String = etPassword.text.toString().trim()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(
+                this,
+                "Please enter email and password",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -67,14 +75,13 @@ class LoginActivity : AppCompatActivity() {
                         intent.putExtra("username", user.displayName)
                     }
                     startActivity(intent)
-
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Sign in", "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
                         "Authentication failed.",
-                        Toast.LENGTH_SHORT,
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
             }

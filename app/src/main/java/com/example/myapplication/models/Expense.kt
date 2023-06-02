@@ -9,20 +9,25 @@ data class Expense (
     var expenseType : String? =null,
     var paymentMethod: String? =null,
     var date : String?=null,
-    var note : String,
+    var note : String?=null,
     var amount : String ?=null,
     ): Parcelable{
 
+    constructor() : this("") {
+        // Empty constructor body
+    }
+
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()!!,
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString()
     ) {
     }
+
 
     override fun writeToParcel(parcel: Parcel, flags: Int) =with(parcel){
         parcel.writeString(userId)

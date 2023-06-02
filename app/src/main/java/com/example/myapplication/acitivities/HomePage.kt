@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.adapters.ExpRecyclerAdapter
 import com.example.myapplication.models.Expense
 import com.example.myapplication.R
-import com.example.myapplication.activities.ReportGenerateActivity
+import com.example.myapplication.acitivities.ReportGenerateActivity
 import com.example.myapplication.firebase.FirestoreClass
 import com.example.myapplication.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView

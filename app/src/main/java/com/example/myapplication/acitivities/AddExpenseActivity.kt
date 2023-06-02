@@ -10,7 +10,7 @@ import com.example.myapplication.R
 import com.example.myapplication.firebase.FirestoreClass
 import com.example.myapplication.models.Expense
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.DatabaseReference
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
