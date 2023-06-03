@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Sign in", "signInWithEmail:failure", task.exception)
-                    showErrorSnackBar("Authentication failed.")
+                    showErrorSnackBar("Authentication Failed")
                 }
             }
     }

@@ -54,6 +54,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'com.google.firebase:firebase-auth:22.0.0'
     implementation 'com.google.firebase:firebase-firestore:24.6.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.2.0'
 //    implementation 'androidx.core:core-ktx:+'
     def room_version = "2.5.1"
 
