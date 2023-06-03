@@ -7,6 +7,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -32,6 +33,20 @@ class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
+
+        /* Show set budget activity when first time app runs */
+        val isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+            .getBoolean("isFirstRun", true)
+
+        if (isFirstRun) {
+            // Show start activity
+            startActivity(Intent(this, SetBudgetActivity::class.java))
+//            Toast.makeText(this, "First Run", Toast.LENGTH_LONG).show()
+        }
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+            .putBoolean("isFirstRun", false).commit()
+
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
