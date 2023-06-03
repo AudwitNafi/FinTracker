@@ -4,14 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.myapplication.R
 import com.example.myapplication.acitivities.HomePage
 import com.example.myapplication.models.User
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -49,6 +52,14 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun showErrorSnackBar(message: String) {
+        val rootView = findViewById<View>(android.R.id.content)
+        val snackBar = Snackbar.make(rootView, message, Snackbar.LENGTH_LONG)
+        val snackBarView = snackBar.view
+        snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
+        snackBar.show()
+    }
+
     private fun signInUser() {
         val etEmail = findViewById<EditText>(R.id.et_email_sign_in)
         val etPassword = findViewById<EditText>(R.id.et_password_sign_in)
@@ -57,11 +68,7 @@ class LoginActivity : AppCompatActivity() {
         val password: String = etPassword.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(
-                this,
-                "Please enter email and password",
-                Toast.LENGTH_SHORT
-            ).show()
+            showErrorSnackBar("Please enter email and password")
             return
         }
 
@@ -79,11 +86,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Sign in", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showErrorSnackBar("Authentication failed.")
                 }
             }
     }
