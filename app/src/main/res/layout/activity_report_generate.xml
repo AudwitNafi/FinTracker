@@ -69,20 +69,6 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWeek"
-            style="@style/ToggleButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter"
-            android:text="Week"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textFontWeight="650"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="483dp" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMonth"
             style="@style/ToggleButtonStyle"
             android:layout_width="wrap_content"
