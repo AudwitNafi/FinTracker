@@ -55,7 +55,7 @@ class ExpRecyclerAdapter(var expArray: ArrayList<Expense>) : RecyclerView.Adapte
             "Meals" -> holder.expImg.setImageResource(R.drawable.ic_restaurant)
         }
         holder.expTime.text = currentItem.date
-        holder.expAmt.text = "$" + currentItem.amount
+        holder.expAmt.text = "-BDT " + currentItem.amount
 
         holder.itemView.setOnClickListener {
             listener?.onItemClick(currentItem)

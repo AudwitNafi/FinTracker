@@ -124,7 +124,7 @@ class HomePage : AppCompatActivity() {
         val tvName: TextView = findViewById(R.id.tv_username)
         val tvBudget: TextView = findViewById(R.id.tv_budget)
         tvName.text = "Welcome back, ${user.name}"
-        tvBudget.text = "$"+ "${user.budget}"
+        tvBudget.text = "BDT "+ "${user.budget}"
     }
 
     fun displayExpenses(expenses: ArrayList<Expense>) {

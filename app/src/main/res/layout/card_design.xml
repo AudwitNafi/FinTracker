@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:backgroundTint="@color/expense_card"
+        android:backgroundTint="#FFBF00"
         app:cardCornerRadius="7dp"
         app:cardElevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="#FFBF00"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -69,9 +68,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
-                android:text="-$7.20"
+                android:text="-BDT 7.20"
                 android:textColor="@color/common_google_signin_btn_text_light"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
