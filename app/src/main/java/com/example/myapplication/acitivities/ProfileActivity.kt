@@ -71,6 +71,8 @@ class ProfileActivity : AppCompatActivity() {
         if(etName.text.toString() != mUser.name && etName.text.toString()!="")
             FirestoreClass().updateUserName(this, etName.text.toString())
         FirestoreClass().updateBudget(this, etBudget.text.toString())
+        val intent = Intent(this, HomePage::class.java)
+        startActivity(intent)
         finish()
     }
     fun setUserData(user: User){

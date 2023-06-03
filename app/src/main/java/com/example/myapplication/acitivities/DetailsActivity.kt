@@ -2,6 +2,7 @@ package com.example.myapplication.acitivities
 
 import Expense
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
@@ -18,6 +19,11 @@ class DetailsActivity : AppCompatActivity() {
         val tvDate: TextView = findViewById(R.id.date)
         val tvPaymentMethod: TextView = findViewById(R.id.payment_method)
         val tvNote: TextView = findViewById(R.id.note)
+        val backBtn: ImageButton = findViewById(R.id.back_btn)
+
+        backBtn.setOnClickListener {
+            finish()
+        }
 
         expense?.let {
             tvAmount.text = it.amount
