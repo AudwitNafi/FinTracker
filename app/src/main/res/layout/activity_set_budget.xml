@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".acitivities.SetBudgetActivity"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="30dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set your monthly budget"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/et_set_initial_budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter an amount in BDT"
+            android:layout_marginVertical="30dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_budget_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/ripple_bg"
+            android:backgroundTint="#FFBF00"
+            android:text="Save Changes" />
+    </LinearLayout>
+</LinearLayout>
