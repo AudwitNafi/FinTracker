@@ -17,6 +17,9 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 class ReportGenerateActivity : AppCompatActivity() {
     private lateinit var pieChart: PieChart
@@ -58,6 +61,48 @@ class ReportGenerateActivity : AppCompatActivity() {
 
     private fun getCurrentUserID(): String {
         return FirebaseAuth.getInstance().currentUser!!.uid
+    }
+
+
+    fun getCurrentMonth(): String {
+        val currentDate = Calendar.getInstance().time
+        val dateFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+        return dateFormat.format(currentDate)
+    }
+
+    fun getExpenseMonth(dateString: String): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+        val date = dateFormat.parse(dateString)
+        val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+        return monthFormat.format(date)
+    }
+
+    fun getCurrentYear(): String {
+        val currentDate = Calendar.getInstance().time
+        val dateFormat = SimpleDateFormat("yyyy", Locale.getDefault())
+        return dateFormat.format(currentDate)
+    }
+
+    fun getExpenseYear(dateString: String): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+        val date = dateFormat.parse(dateString)
+        val yearFormat = SimpleDateFormat("yyyy", Locale.getDefault())
+        return yearFormat.format(date)
+    }
+
+    fun getCurrentWeek(): String {
+        val currentDate = Calendar.getInstance()
+        val weekFormat = SimpleDateFormat("ww", Locale.getDefault())
+        return weekFormat.format(currentDate.time)
+    }
+
+    fun getExpenseWeek(dateString: String): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+        val date = dateFormat.parse(dateString)
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        val weekFormat = SimpleDateFormat("ww", Locale.getDefault())
+        return weekFormat.format(calendar.time)
     }
 
     private fun fetchExpenseData() {
